@@ -2,18 +2,44 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+        <title>{% block title %}B-Mobile | La meilleure plateforme de bons plans au monde{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="B-Mobile App">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+            {% block stylesheets %}   {% endblock %}
+            
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap4/bootstrap.min.css') }}">
+            <link href="{{ asset('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/OwlCarousel2-2.2.1/animate.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main_styles.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
+
+     
+
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+    {% block body %} {% endblock %}
+        <div class="super_container">
+            {% include "_partials/_menu.html.twig" %}
+
+            {% include "_partials/_footer.html.twig" %}
+        </div>
+    
+    
     </body>
+
+        {% block javascripts %} {% endblock %}
+
+        <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('assets/css/bootstrap4/popper.js') }}"></script>
+        <script src="{{ asset('assets/css/bootstrap4/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/Isotope/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
+        <script src="{{ asset('assets/plugins/easing/easing.js') }}"></script>
+        <script src="{{ asset('assets/js/custom.js') }}"></script>
 </html>
