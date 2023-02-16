@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}B-mobile || Mon-compte{% endblock %}
+
+{% block body %}
+
+
+<div class="main_slider_ext">
+    <div class="container col-xxl-8 px-4 py-5">
+		<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+		  <div class="col-10 col-sm-8 col-lg-6">
+			<img src="{{ asset('assets/img/inscription-img.png') }}" class="d-block mx-lg-auto img-fluid" alt="" width="700" height="500" loading="lazy">
+		  </div>
+		  <div class="col-lg-6">
+			<h2 class="mb-3">Mon compte | Accueil</h2>
+			<p class="lead">
+				Bonjour/Bonsoir {{ app.user.firstname }}.
+				<br>
+				C'est dans cette espace que vous pouvez:
+				<br>
+				<i class="fa fa-check" aria-hidden="true"></i>Gérer vos informations personnelles!
+				<br>
+				<i class="fa fa-check" aria-hidden="true"></i>Passer des commandes dans toutes tes enseignes
+				<br>
+				<i class="fa fa-check" aria-hidden="true"></i>Recevoir tes invitations et cadeaux
+				<br>
+				<i class="fa fa-check" aria-hidden="true"></i>Parrainer d'autres utilisateurs afin de devenir Ambassadeur
+				<br>
+				<i class="fa fa-check" aria-hidden="true"></i>Tchatter avec la fonctionalité B-mobile community
+				<br>
+				<i class="fa fa-check" aria-hidden="true"></i>En sômmes c'est ici que tu vas manger la life
+
+			</p>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+			   <a href="{{ path('app_enseignes') }}" class="btn btn-dark btn-md px-4 me-md-2">Continuer vers mes bon plans</a>
+			
+			</div>
+		  </div>
+		</div>
+	  </div>
+</div>
+{% endblock %}

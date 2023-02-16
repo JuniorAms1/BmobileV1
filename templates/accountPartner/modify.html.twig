@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}B-mobile || Modiifer-mon-mot-de-passe{% endblock %}
+
+{% block body %}
+
+
+<div class="main_slider_ext">
+    <div class="container col-xxl-8 px-4 py-5">
+        <h2 class="mb-3">Mon compte | Modification de mes infos perso</h2>
+        {% if notification %}
+           <div class="alert alert-info"> {{ notification }} </div>
+        {% endif %}
+		<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+		  <div class="col-10 col-sm-8 col-lg-6">
+			{{ form(form) }}
+		  </div>
+		  <div class="col-lg-6">
+            <span style="color: red;">Espace personnel de => {{ app.user.nom }}</span>
+			<p class="lead">
+				<br>
+				Attention les modifications apportées seront irreversible, 
+                veuillez mémoriser votre mot de passe *
+			</p>
+            Ou
+            <hr>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-start mt-3">
+			   <a href="{{ path('app_account_partner') }}" class="btn btn-dark btn-md px-4 me-md-2">Retour</a>
+			</div>
+		  </div>
+		</div>
+	  </div>
+</div>
+{% endblock %}

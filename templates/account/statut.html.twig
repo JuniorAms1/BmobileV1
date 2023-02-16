@@ -1,0 +1,248 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}B-mobile || Mon-statut{% endblock %}
+
+{% block body %}
+
+<div class="main_slider_ext">
+    <h2>Mon statut B-mobile</h2>
+    <div class="container col-xxl-8 px-4 py-5">
+		<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-lg-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters bg-light border border-danger">
+                      <div class="col-md-4 text-white bg-dark text-center align-self-center border border-danger">
+                        Statut des parrainages
+                          
+                      </div>
+                     
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <h5 class="card-title">Nombre de filleuls : <span style="color: red; font-weight:bold">4</span> </small></h5>
+                            <p class="card-text">
+                                Tu veux agrandir la communaute Bantoo et devenir un super parrain?<br>
+                                Ramene un max de membres (Kiffeurs) et gagne de nombreux lots et
+                                des bons de consommation</p>
+                                <p class="card-text"><small class="text-muted">Ton code de parrainage est 
+                                 <span style="color: red; font-weight:bold">193254</span> </small>
+                                </p>
+                            <p class="card-text"><small class="text-muted">Parrain : Aucun </small></p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                  </div>
+              </div>
+		  <div class="col-lg-6">
+			<div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters bg-light border border-danger">
+                  <div class="col-md-4 text-white bg-dark text-center align-self-center border border-danger">
+                    Validité de la Carte
+                        <br>
+                        <span>12 mois</span>
+                  </div>
+                  {% for carte in cartes %}
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title">Numéro Carte: {{ carte.numcarte|number_format(0, ' ', '-')  }}</h5>
+                        <p class="card-text">
+                           Ta carte B-mobile est ton élément de reconnaissance pour profiter de tes avantages, elle est accompagnée
+                            d'une SIM à durée illimité.</p>
+                            <p class="card-text"><small class="text-muted">Carte acheté le
+                                 <span style="color: red; font-weight:bold">{{ carte.dateachat|date("d/m/Y") }} </span></small>
+                            </p>
+                        <p class="card-text"><small class="text-muted">Carte valide jusqu'au 
+                            <span style="color: red; font-weight:bold">{{ carte.dateachat|date_modify("+365 day")|date("d/m/Y") }}</small>
+                        </p>
+                        </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+		  </div>
+		</div>
+    </div>
+
+    <!-- Parrainage et gains-->
+    <h2>Le parrainage c'est Comment?</h2>
+            <div class="container mb-5">
+            <div class="row">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                  <div class="card card_black">
+                    <div class="card-body">
+                      <h3 class="card-title card_title_red">1</h3>
+                      <p class="card-text card_text_white"> 
+                        Posseder d'abord la carte B-Mobile <br>
+                        Acceder a la page parrainage<br>
+                        Copier son code de parrainage <br>
+                        Envoyer l'invitation 
+                      </p>
+                     
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card card_black">
+                      <div class="card-body">
+                        <h3 class="card-title card_title_red">2</h3>
+                        <p class="card-text card_text_white">
+                            
+                            Il accepte ton invitation <br>
+                            Il s'inscrit sur la plateforme avec ton code <br>
+                            Lorsqu'il achete le Kit B-mobile, il devient officiellement ton Filleul
+                          
+
+                        </p>
+                        
+                      </div>
+                    </div>
+                  </div>
+                <div class="col-sm-4">
+                  <div class="card card_black">
+                    <div class="card-body">
+                      <h3 class="card-title card_title_red">3</h3>
+                      <p class="card-text card_text_white">
+                        Une fois tes invitations validées et que tes filleuls aient acheté leur carte B-mobile, 
+                        tu beneficies de reductions spéciales et des bons plans(voyage ...)
+                        
+                      </p>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>Mes Gains</h2>
+            <div class="container mb-5">
+            <div class="mb-3">
+
+                <p>
+                    <a class="btn btn-secondary btn-block" data-toggle="collapse" href="#collapseCinq" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        5 filleuls
+                    </a>
+                   
+                  </p>
+                  <div class="collapse" id="collapseCinq">
+                    <div class="row">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card card_black">
+                              <div class="card-body">
+                                <h3 class="card-title card_title_red">Pack 1</h3>
+                                <p class="card-text card_text_white">
+                                        1 bon de consommation de 5000fr
+                                </p>
+                               
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card card_black">
+                              <div class="card-body">
+                                <h3 class="card-title card_title_red">Pack 2</h3>
+                                <p class="card-text card_text_white">5Go de connexion de données</p>
+                               
+                              </div>
+                            </div>
+                          </div>
+                         <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card card_black">
+                              <div class="card-body">
+                                <h3 class="card-title card_title_red">Pack 3</h3>
+                                <p class="card-text card_text_white">5000Fr de crédit téléphonique</p>
+                               
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                   
+                  </div>
+            </div>
+            <div class="mb-3">
+
+                <p>
+                    <a class="btn btn-dark btn-block" data-toggle="collapse" href="#collapseDix" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        10 filleuls
+                    </a>
+                   
+                  </p>
+                  <div class="collapse" id="collapseDix">
+                    <div class="row">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card card_black">
+                              <div class="card-body">
+                                <h3 class="card-title card_title_red">Pack 1</h3>
+                                <p class="card-text card_text_white">With supporting text below as a natural lead-in to additional content.</p>
+                               
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card card_black">
+                              <div class="card-body">
+                                <h3 class="card-title card_title_red">Pack 2</h3>
+                                <p class="card-text card_text_white">With supporting text below as a natural lead-in to additional content.</p>
+                               
+                              </div>
+                            </div>
+                          </div>
+                         <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card card_black">
+                              <div class="card-body">
+                                <h3 class="card-title card_title_red">Pack 3</h3>
+                                <p class="card-text card_text_white">With supporting text below as a natural lead-in to additional content.</p>
+                               
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                   
+                  </div>
+            </div>
+            <div class="mb-3">
+
+                <p>
+                    <a class="btn btn-info btn-block" data-toggle="collapse" href="#collapseVingt" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                     20 filleuls
+                    </a>
+                   
+                  </p>
+                  <div class="collapse" id="collapseVingt">
+                    <div class="row">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card card_black">
+                              <div class="card-body">
+                                <h3 class="card-title card_title_red">Pack 1</h3>
+                                <p class="card-text card_text_white">With supporting text below as a natural lead-in to additional content.</p>
+                               
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card card_black">
+                              <div class="card-body">
+                                <h3 class="card-title card_title_red">Pack 2</h3>
+                                <p class="card-text card_text_white">With supporting text below as a natural lead-in to additional content.</p>
+                               
+                              </div>
+                            </div>
+                          </div>
+                         <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card card_black">
+                              <div class="card-body">
+                                <h3 class="card-title card_title_red">Pack 3</h3>
+                                <p class="card-text card_text_white">With supporting text below as a natural lead-in to additional content.</p>
+                               
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                   
+                  </div>
+            </div>
+        </div>
+</div>
+
+{% endblock %}

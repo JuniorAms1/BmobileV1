@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}B-mobile || Inscription{% endblock %}
+ {% block stylesheets %}   
+<style>
+    .container {
+        max-width: 960px;
+      }
+      
+      .lh-condensed { line-height: 1.25; }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }      
+    
+</style>
+{% endblock %}
+
+
+{% block body %}
+
+	<!-- Inscription -->
+
+	<div class="main_slider_ext">
+		<div class="container mb-5">
+            <div class="py-5 text-center">
+              <img class="d-block mx-auto mb-4" src="{{ asset('assets/img/inscription-img.png') }}" alt="" width="150" height="100">
+              <h2>Formulaire d'inscription</h2>
+              <p class="lead">
+               En remplissant ce formulaire vous consentez aux politiques de
+            confidentialité de B-mobile</p>
+            </div>
+            {% if notification %}
+              <div class="alert alert-info"> {{ notification }} </div>
+            {% endif %}
+            <div class="row">
+              <div class="col-md-4 order-md-2 mb-4">
+                <div class="alert alert-info" role="alert">
+                  <i class="fa fa-info-circle" aria-hidden="true"></i>
+                  <p>
+                    Veuillez renseigner correctement toutes ses informations afin que votre carte puisse être
+                    valide. <br>
+                    <b>Veuillez renseigner un Email valide pour la confirmation</b>
+                     <br><br>
+                     <b>?Pourquoi doit-je donner ma date de naissance</b>
+                     <br>
+                     B-mobile récompense ses fidéles utilisateurs à l'occasion de leurs anniversaires, de ce faite
+                     cette date sera retenue et cela nous permettra de vous faire des cadeaux de réductiion, d'excursion gratuite,
+                     ou même de bons plans téléphoniques tout au long de votre mois de naissance.
+                     <br>
+                     <b>?Pourquoi doit-je donner mon numéro de téléphone</b>
+                     <br>
+                     Cela nous permettra de vous joindre afin de vous livrer votre kit B-mobile <br>(Carte + puce)
+                  </p> 
+                </div>
+          
+              </div>
+
+              <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Infos de connexion</h4>
+          
+                  {{ form_start(form) }}
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                       {{ form_row(form.firstname) }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      {{ form_row(form.lastname) }}
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      {{ form_row(form.tel) }}
+                    </div>
+                    <div class="col-md-6">
+                      {{ form_row(form.email) }}
+                    
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                   {{ form_row(form.password.first) }}
+                  </div>
+          
+                  <div class="mb-3">
+                  {{ form_row(form.password.second) }}
+                  </div>
+
+                  <h4 class="mb-3">Infos de ta carte</h4>
+     
+                  <span class="badge bg-info text-dark">Prix du KIT: 3000F CFA [Carte + Puce]</span>
+              
+                  <div class="mb-3">
+                    {{ form_row(form.adresse) }}
+                   </div>
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <span>Votre date naissance</span>
+                      {{ form_row(form.birthday) }}
+                    </div>
+                    <div class="col-md-6">
+                      <span>Mode de paiement</span>
+                      {{ form_row(form.modePaiement) }}
+                    </div>
+                  </div>
+           {{ form_end(form) }}
+                 
+               
+              </div>
+            </div>
+   
+	</div>
+
+{% endblock %}

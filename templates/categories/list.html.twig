@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}B-mobile || {{ categorie.nom }}{% endblock %}
+
+{% block body %}
+
+	<div class="main_slider_ext">
+		
+	<!-- New Arrivals -->
+
+	<div class="new_arrivals">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title new_arrivals_title">
+						<h2>{{ categorie.nom }}</h2>
+                        <p>{{ categorie.description }}</p>
+					</div>
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col">
+					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+						<!-- Product 1 -->
+								{% for enseigne in enseignes %}	
+
+						<div class="product-item">
+							<div class="product discount product_filter">
+								<div class="product_image">
+									<img src="/uploads/{{ enseigne.logo }}" alt="{{ enseigne.nom }}">
+								</div>
+								<div class="favorite favorite_left"></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-{{ enseigne.remise * 100 }}%</span></div>
+								<div class="product_info">
+									<h5 class="product_name"><a href="{{ path('app_enseigne', {'slug' : enseigne.slug}) }}">{{ enseigne.nom }}</a></h5>
+									{% if enseigne.prixPublic != null %}
+										
+										<div class="row">
+											<div class="col-6 remise">
+												Prix remisé <div class="product_price">{{ (((enseigne.prixPublic) - (enseigne.prixPublic * enseigne.remise)) / 100)|number_format(0,',','.') }}F Cfa</div>
+											</div>
+											<div class="col-6 public">
+												Prix public<div class="product_price"><span>{{ (enseigne.prixPublic / 100)|number_format(0,',','.') }}F Cfa</span></div>
+											</div>
+									    </div>
+										<div>
+											<p>{{ enseigne.ville }} - <i class="fa fa-map-pin"></i> <span>221 Sénégal</span></p>
+										</div>
+										{% else %}
+										<div class="row">
+											<div class="col-6 remise">
+												Prix remisé <div class="product_price">-{{ enseigne.remise * 100 }}%</div>
+											</div>
+											<div class="col-6 public">
+												Prix public<div class=""><span class="text-secondary">Voir le menu</span></div>
+											</div>
+									    </div>
+											<div>
+												<p>{{ enseigne.ville }} - <i class="fa fa-map-pin"></i> <span>221 Sénégal</span></p>
+											</div>
+									{% endif %}
+									
+									<div class="product_offer">Offre exclusif B-Mobile</div>
+								</div>
+							</div>
+							<div class="black_button add_to_cart_button mt-1"><a href="#">En savoir plus</a></div>
+						</div>
+				
+						{% endfor %}
+						
+						<!-- Product 2 -->
+
+						<div class="product-item women">
+							<div class="product product_filter">
+								<div class="product_image">
+									<img src="{{ asset('assets/img/product_2.png') }}" alt="">
+								</div>
+								<div class="favorite"></div>
+								<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
+								<div class="product_info">
+									<h6 class="product_name"><a href="single.html">Samsung CF591 Series Curved 27-Inch FHD Monitor</a></h6>
+									<div class="row">
+										<div class="col-6 remise">
+											Prix remisé <div class="product_price">15,000F Cfa</div>
+										</div>
+										<div class="col-6 public">
+											Prix public<div class="product_price"><span>25,000F Cfa</span></div>
+										</div>
+									</div>
+									<div class="product_offer">Offre exclusif B-Mobile</div>
+								</div>
+							</div>
+							<div class="black_button add_to_cart_button mt-1"><a href="#">En savoir plus</a></div>
+						</div>
+
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+    {% endblock %}

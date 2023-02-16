@@ -73,6 +73,12 @@
 	{
 		height: 220px;
 	}
+	/*Pour minimiser le titre des catégories sur une tablette*/
+	.banner_item .banner_category a
+	{
+		font-size: 9px;
+
+	}
 	.product-item
 	{
 		height: 360px;

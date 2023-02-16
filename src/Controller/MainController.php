@@ -2,24 +2,26 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\CategoriesRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
-    #[Route('/main', name: 'app_home')]
-    public function index(): Response
+    #[Route('/', name: 'app_home')]
+    public function index(CategoriesRepository $categoriesRepository): Response
     {
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
+            'categories' => $categoriesRepository->findBy([])
         ]);
     }
 
-    #[Route('/mes-avantages', name: 'app_avantage')]
-    public function avantage(): Response
+    #[Route('/devenir-partenaire', name: 'app_devenir_partenaire')]
+    public function partenariat(): Response
     {
-        return $this->render('main/avantages.html.twig', [
+        return $this->render('main/devenir_partenaire.html.twig', [
             'controller_name' => 'MainController',
         ]);
     }

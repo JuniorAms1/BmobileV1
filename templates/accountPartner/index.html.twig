@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}B-mobile || Mon-compte-Partenaire{% endblock %}
+
+{% block body %}
+
+<div class="main_slider_ext">
+    <div class="container col-xxl-8 px-4 py-5">
+		<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+		  <div class="col-10 col-sm-8 col-lg-6">
+			<img src="{{ asset('assets/img/inscription-img.png') }}" class="d-block mx-lg-auto img-fluid" alt="" width="700" height="500" loading="lazy">
+		  </div>
+		  <div class="col-lg-6">
+			<h2 class="mb-3">Mon compte | Accueil</h2>
+			<p class="lead">
+               
+				Bonjour/Bonsoir <span style="color: red;">{{ app.user.nom }}</span> .
+				<br>
+				C'est dans cette espace que vous pouvez:
+				<br>
+				<i class="fa fa-check" aria-hidden="true"></i>Gérer vos informations personnelles!
+				<br>
+				<i class="fa fa-check" aria-hidden="true"></i>Scanner les codes QR clients à chaque achat!
+				<br>
+				<i class="fa fa-check" aria-hidden="true"></i>Lancer des offres de promotions et suivre vos statistiques de ventes!
+				<br>
+			</p>
+            <span style="color: red;">! Penser à modifier votre mot de passe si c'est votre premiére connexion ici</span>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                
+			   <a href="{{ path('app_account_partner_modify') }}" class="btn btn-dark btn-md px-4 me-md-2">Changer de mot de passe</a>
+			
+			</div>
+		  </div>
+		</div>
+	  </div>
+</div>
+
+{% endblock %}
+
+

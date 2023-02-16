@@ -16,7 +16,8 @@ framework:
             # sync: 'sync://'
 
         routing:
-            Symfony\Component\Mailer\Messenger\SendEmailMessage: async
+        #Cette ligne dit qu'on doit recevoir les messages en async du coup ça va dans la BDD et c'est pas ce qu'on veut
+            # Symfony\Component\Mailer\Messenger\SendEmailMessage: async
             Symfony\Component\Notifier\Message\ChatMessage: async
             Symfony\Component\Notifier\Message\SmsMessage: async
 
