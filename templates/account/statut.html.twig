@@ -18,16 +18,43 @@
                      
                         <div class="col-md-8">
                             <div class="card-body">
-                            <h5 class="card-title">Nombre de filleuls : <span style="color: red; font-weight:bold">4</span> </small></h5>
+                                {% if filleuls %}
+                                <h5 class="card-title">Nombre de filleuls : <span style="color: red; font-weight:bold">{{ filleuls|length }}</span> </small></h5>
                             <p class="card-text">
-                                Tu veux agrandir la communaute Bantoo et devenir un super parrain?<br>
+                                Tu veux agrandir la communaute Bantoo et devenir un Ambassadeur?<br>
                                 Ramene un max de membres (Kiffeurs) et gagne de nombreux lots et
                                 des bons de consommation</p>
-                                <p class="card-text"><small class="text-muted">Ton code de parrainage est 
-                                 <span style="color: red; font-weight:bold">193254</span> </small>
+                                <p class="card-text"><small class="text-muted">Ton code de parrainage est </small>
+                                 <span style="color: red; font-weight:bold">{{ app.user.referalcode }}</span> 
                                 </p>
-                            <p class="card-text"><small class="text-muted">Parrain : Aucun </small></p>
-                            </div>
+                             <p class="card-text"><small class="text-muted">Parrain : </small>
+                                {% if app.user.parrain %}
+                                <span style="color: red; font-weight:bold">{{ app.user.parrain }}</span>
+                                {% else %}
+                                <span style="color: red; font-weight:bold">Aucun</span>
+                                {% endif %}
+                              </p>
+
+                              {% else %}
+
+                              <h5 class="card-title">Nombre de filleuls : <span style="color: red; font-weight:bold">Aucun</span> </small></h5>
+                              <p class="card-text">
+                                  Tu veux agrandir la communaute Bantoo et devenir un Ambassadeur?<br>
+                                  Ramene un max de membres (Kiffeurs) et gagne de nombreux lots et
+                                  des bons de consommation</p>
+                                  <p class="card-text"><small class="text-muted">Ton code de parrainage est </small>
+                                   <span style="color: red; font-weight:bold">{{ app.user.referalcode }}</span> 
+                                  </p>
+                              <p class="card-text"><small class="text-muted">Parrain : </small>
+                                  {% if app.user.parrain %}
+                                  <span style="color: red; font-weight:bold">{{ app.user.parrain }}</span>
+                                  {% else %}
+                                  <span style="color: red; font-weight:bold">Aucun</span>
+                                  {% endif %}
+                                </p>
+
+                            {% endif %}
+                           </div>
                         </div>
                     
                     </div>
@@ -48,11 +75,11 @@
                         <p class="card-text">
                            Ta carte B-mobile est ton élément de reconnaissance pour profiter de tes avantages, elle est accompagnée
                             d'une SIM à durée illimité.</p>
-                            <p class="card-text"><small class="text-muted">Carte acheté le
-                                 <span style="color: red; font-weight:bold">{{ carte.dateachat|date("d/m/Y") }} </span></small>
+                            <p class="card-text"><small class="text-muted">Carte acheté le</small>
+                                 <span style="color: red; font-weight:bold">{{ carte.dateachat|date("d/m/Y") }} </span>
                             </p>
-                        <p class="card-text"><small class="text-muted">Carte valide jusqu'au 
-                            <span style="color: red; font-weight:bold">{{ carte.dateachat|date_modify("+365 day")|date("d/m/Y") }}</small>
+                        <p class="card-text"><small class="text-muted">Carte valide jusqu'au</small>
+                            <span style="color: red; font-weight:bold">{{ carte.dateachat|date_modify("+365 day")|date("d/m/Y") }}
                         </p>
                         </div>
                     </div>

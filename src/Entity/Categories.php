@@ -27,6 +27,9 @@ class Categories
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $illustration = null;
+
     public function __construct()
     {
         $this->enseignes = new ArrayCollection();
@@ -105,6 +108,18 @@ class Categories
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getIllustration(): ?string
+    {
+        return $this->illustration;
+    }
+
+    public function setIllustration(?string $illustration): self
+    {
+        $this->illustration = $illustration;
 
         return $this;
     }

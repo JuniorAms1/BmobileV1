@@ -53,7 +53,7 @@ class QrCodeService{
        
 
         //Save img png
-       //$result->saveToFile($path.'qr-code/'.$namePng);
+      // $result->saveToFile($path.'qr-code/'.$namePng);
 
         return $result->getDataUri();
        

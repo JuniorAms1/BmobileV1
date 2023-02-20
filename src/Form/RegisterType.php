@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -55,6 +56,16 @@ class RegisterType extends AbstractType
                     'placeholder' => 'Veuillez entrer votre lieu de livraison souhaité'
                 ]
             ])
+            ->add('referal', NumberType::class, [
+                'label' => 'Code de parrainage(Optionnel)',
+                'required' => false,
+                'mapped' => false,
+                'attr' => [
+                    'placeholder' => 'Veuillez entrer un code de parrainage si vous en avez'
+                ]
+                
+                
+            ])
             ->add('birthday', BirthdayType::class, [
                 'label' => false,
                 'widget' => 'choice',
@@ -81,6 +92,10 @@ class RegisterType extends AbstractType
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
+                'constraints' => new Length([
+                    'min' => 5,
+                    'max' => 60
+                ]),
                 'invalid_message' => 'Le mot de passe et la confirmation doivent être identique',
                 'required' => true,
                 'first_options' => [ 

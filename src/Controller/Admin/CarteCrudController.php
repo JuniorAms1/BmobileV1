@@ -6,6 +6,7 @@ use App\Entity\Carte;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -32,13 +33,11 @@ class CarteCrudController extends AbstractCrudController
 
 public function configureFields(string $pageName): iterable
 {
+    
     return [
         NumberField::new('num_carte'),
         DateField::new('date_achat', 'Fait le'),
-        ImageField::new('qr')
-        ->setBasePath('/assets/qr-code/')
-        ->setUploadDir('/public/assets/qr-code'),
-        AssociationField::new('membre') 
+        AssociationField::new('membre', 'Proprio') 
        
        
     ];

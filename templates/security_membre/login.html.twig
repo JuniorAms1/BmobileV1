@@ -14,16 +14,12 @@
             </div>
           
             <div class="row text-center mb-4">
-              <div class="col-md-6">
-                    <button class="btn btn-lg btn-warning">
-                        Compte client
-                    </button>
+              <div class="col-md-5">
+                <a class="btn btn-lg btn-warning" href="{{ path('app_login') }}">Compte client</a>
               </div>
-
-              <div class="col-md-6">
-                    <button class="btn btn-lg btn-info">
-                        Compte Partenaire
-                    </button>
+                <div class="col-md-2"><span>Ou</span></div>
+              <div class="col-md-5">
+                <a class="btn btn-lg btn-info" href="{{ path('app_login_partner') }}">Compte Partenaire</a>
               </div>
             </div>
 

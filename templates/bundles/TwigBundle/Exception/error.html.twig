@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}B-mobile || Page introuvable {% endblock %}
+
+{% block body %}
+
+
+<div class="main_slider_ext">
+
+    <div class="d-flex align-items-center justify-content-center vh-100">
+        <div class="text-center">
+            <h1 class="display-1 fw-bold">404</h1>
+            <p class="fs-3"> <span class="text-danger">Opps!</span> Page introuvable.</p>
+            <p class="lead">
+                Désolé la page que vous cherchez ne semble pas accessible pour le moment ou n'existe pas! 
+              </p>
+            <div class="mb-5">
+                <a href="{{ path('app_home') }}" class="btn btn-dark btn-md">Retour à l'accueil</a>
+            </div>
+           
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -8,8 +8,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class MembreCrudController extends AbstractCrudController
@@ -43,6 +45,8 @@ class MembreCrudController extends AbstractCrudController
             DateField::new('birthday', 'Né le')->onlyOnDetail(),
             DateField::new('created_at', 'Inscrit le')->onlyOnDetail(),
             TextField::new('mode_paiement')->onlyOnDetail(),
+            NumberField::new('referal_code')->onlyOnDetail(),
+            AssociationField::new('parrain')->onlyOnDetail(),
             BooleanField::new('isverified')->onlyOnDetail(),
            
            

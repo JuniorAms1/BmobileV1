@@ -32,8 +32,11 @@
 
 			</p>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+				{% if is_granted('ROLE_ADMIN') %}
+				<a href="/admin" class="btn btn-dark btn-md px-4 me-md-2">Admin Dashboard</a>
+				{% else %}
 			   <a href="{{ path('app_enseignes') }}" class="btn btn-dark btn-md px-4 me-md-2">Continuer vers mes bon plans</a>
-			
+			   {% endif %}
 			</div>
 		  </div>
 		</div>

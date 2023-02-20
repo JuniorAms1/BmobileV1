@@ -55,6 +55,12 @@ class Membre implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $modePaiement = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $referalCode = null;
+
+    #[ORM\ManyToOne(inversedBy: 'parrain', targetEntity: self::class, cascade: ['persist', 'remove'])]
+    private ?self $parrain = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -249,5 +255,29 @@ class Membre implements UserInterface, PasswordAuthenticatedUserInterface
          return $this->getFirstname().' '.$this->getLastname();
      }
      // Fin de mapping
+
+     public function getReferalCode(): ?string
+     {
+         return $this->referalCode;
+     }
+
+     public function setReferalCode(string $referalCode): self
+     {
+         $this->referalCode = $referalCode;
+
+         return $this;
+     }
+
+     public function getParrain(): ?self
+     {
+         return $this->parrain;
+     }
+
+     public function setParrain(?self $parrain): self
+     {
+         $this->parrain = $parrain;
+
+         return $this;
+     }
 
 }

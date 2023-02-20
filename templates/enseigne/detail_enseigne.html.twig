@@ -45,16 +45,15 @@
                     <b style="color: orange;">Site web : </b>{{ enseigne.enseigneDetails.siteweb }}
                 </p>
                 <h5 class="card-title">Offre exclusive B-mobile</h5>
-                <span>{{ enseigne.remise * 100 }}% de réduction sur la facture</span>
-                
                 
                 <div class="alert alert-info" role="alert">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i> A simple info alert—check it out!
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> 
+                    {{ enseigne.remise * 100 }}% de réduction sur la facture
                 </div>
                 
 
                 <a href="{{ enseigne.enseigneDetails.whatsapp }}" class="btn btn-danger mt-2">Commander</a>
-                <a href="#" class="btn btn-danger mt-2">Voir le menu</a> <!--En faire un modal image-->
+                <a href="#0" onclick="document.getElementById('id01').style.display='block'" class="btn btn-danger mt-2">Voir le catalogue</a> <!--En faire un modal image-->
                 </div>
             </div>
         </div>
@@ -149,6 +148,23 @@
 
     </div>
 
+
+    <!--Modal Menu-->
+    
+		<div id="id01" class="modal main_slider container">
+
+            <div class="modal-content animate">
+              <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+              </div>
+              <div class="container unamemdp">
+                <img src="/uploads/{{ enseigne.enseigneDetails.catalogue }}" alt="Catalague" width="100%" height="400px">
+              </div>
+               
+             
+  
+            </div>
+          </div>
     
 
     

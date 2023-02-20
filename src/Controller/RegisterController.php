@@ -27,7 +27,8 @@ class RegisterController extends AbstractController
         UserPasswordHasherInterface $encoder,
         SendMailService $mail,
         JWTService $jwt,
-        QrCodeService $qrcodeService
+        QrCodeService $qrcodeService,
+        MembreRepository $usersRepository
         ): Response
     {
         $notification = null;
@@ -44,12 +45,38 @@ class RegisterController extends AbstractController
             // Rappeller user et recuperer les données 
             $user = $form->getData();
  
-            // Hasher ou encoder le mdp
+            // Hasher-Encoder le mdp
           $password = $encoder->hashPassword(
                 $user,
                 $user->getPassword()
             );
             $user->setPassword($password);
+
+            //setter un referal code 
+            $referal_code = rand(1, 1000000);
+            $user->setReferalCode($referal_code);
+            
+            //On récupére le code de parrainage saisi pau le nouveau inscrit
+            $codeParrain = $form->get('referal')->getData();
+
+                 // On récupère le user qui posséde le code
+            $em = $doctrine->getManager();
+            $parrain_ = $em->getRepository(Membre::class)->findOneBy(
+                    [
+                        'referalCode' => $codeParrain,
+                    ]
+                );
+
+                //setter le parrain
+                    //tester si le code existe et correspond à un user
+               if ($codeParrain) {
+                    if (!$parrain_) {
+                        $notification = "Code de parrainage incorrect, votre parrain n'existe pas";
+                    }else{
+                        $user->setParrain($parrain_);
+                    }
+               }
+                  
      
            // Enregistrer les infos recuperer dans notre BDD
             $em = $doctrine->getManager();

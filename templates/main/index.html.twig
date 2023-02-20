@@ -12,7 +12,7 @@
 					<div class="main_slider_content">
 						<h6>B-Mobile  / Your life Style</h6>
 						<h1>C'est jusqu'à 50% de réduction </h1>
-						<div class="red_button shop_now_button"><a href="#">Découvrir</a></div>
+						<div class="red_button shop_now_button"><a href="{{ path('app_enseignes') }}">Découvrir</a></div>
 					</div>
 				</div>
 			</div>
@@ -34,7 +34,7 @@
 							Bantoo est aussi un profil mobile qui t'offre jusqu'à 1giga de connexion de données gratuit chaque mois.
 							Tu es prêt, rejoins-nous et débute ton expérience maintenant. <br>
 
-						<div class="red_button shop_now_button mt-0"><a href="macarte.php">Découvrir</a></div>
+						<div class="red_button shop_now_button mt-0"><a href="{{ path('app_lacarte') }}">Découvrir</a></div>
 					</p>
 			</div>
 			
@@ -58,7 +58,7 @@
 					<div class="row">
 						{% for categorie in categories %}
 						<div class="col-md-3 mt-3">
-							<div class="banner_item align-items-center" style="background-image:url( {{ asset('assets/img/banner_1.jpg') }} )">
+							<div class="banner_item align-items-center" style="background-image:url( {{ asset('/uploads/' ~ categorie.illustration) }} )">
 								<div class="banner_category">
 									<a href="{{ path('app_categories_list', {slug : categorie.slug}) }}">{{ categorie.nom }}</a>
 								</div>
@@ -121,7 +121,7 @@
 								<div class="timer_unit">Jours</div>
 							</li>
 						</ul>
-						<div class="red_button deal_ofthe_week_button"><a href="#">Commander</a></div>
+						<div class="red_button deal_ofthe_week_button"><a href="{{ path('app_register') }}">Commander</a></div>
 					</div>
 				</div>
 			</div>
@@ -192,7 +192,7 @@
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">La meilleure appli, mon meilleur ami</h4>
 							<span class="blog_meta">Savio | dec 01, 2019</span>
-							<a class="blog_more" href="main_carousel.php">Lire plus</a>
+							<a class="blog_more" href="#">Lire plus</a>
 						</div>
 					</div>
 				</div>
@@ -202,7 +202,7 @@
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">Je ne peux plus m'en passer wallah</h4>
 							<span class="blog_meta">Junior | dec 01, 2019</span>
-							<a class="blog_more" href="#0">Lire plus</a>
+							<a class="blog_more" href="#">Lire plus</a>
 						</div>
 					</div>
 				</div>
@@ -212,7 +212,7 @@
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">Bantoo_Mobile me fait vivre</h4>
 							<span class="blog_meta">Mére theresa | 24 Avril 2019</span>
-							<a class="blog_more" href="#0">Lire plus</a>
+							<a class="blog_more" href="#">Lire plus</a>
 						</div>
 					</div>
 				</div>
