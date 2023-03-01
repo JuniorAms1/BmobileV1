@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MembreRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -61,9 +63,13 @@ class Membre implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToOne(inversedBy: 'parrain', targetEntity: self::class, cascade: ['persist', 'remove'])]
     private ?self $parrain = null;
 
+    #[ORM\OneToMany(mappedBy: 'membre', targetEntity: Frequentation::class)]
+    private Collection $frequentations;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->frequentations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -276,6 +282,36 @@ class Membre implements UserInterface, PasswordAuthenticatedUserInterface
      public function setParrain(?self $parrain): self
      {
          $this->parrain = $parrain;
+
+         return $this;
+     }
+
+     /**
+      * @return Collection<int, Frequentation>
+      */
+     public function getFrequentations(): Collection
+     {
+         return $this->frequentations;
+     }
+
+     public function addFrequentation(Frequentation $frequentation): self
+     {
+         if (!$this->frequentations->contains($frequentation)) {
+             $this->frequentations->add($frequentation);
+             $frequentation->setMembre($this);
+         }
+
+         return $this;
+     }
+
+     public function removeFrequentation(Frequentation $frequentation): self
+     {
+         if ($this->frequentations->removeElement($frequentation)) {
+             // set the owning side to null (unless already changed)
+             if ($frequentation->getMembre() === $this) {
+                 $frequentation->setMembre(null);
+             }
+         }
 
          return $this;
      }

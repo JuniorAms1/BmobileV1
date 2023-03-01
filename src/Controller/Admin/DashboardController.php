@@ -8,6 +8,7 @@ use App\Entity\Enseigne;
 use App\Entity\Structure;
 use App\Entity\Categories;
 use App\Entity\EnseigneDetails;
+use App\Entity\Frequentation;
 use App\Entity\Membre;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -35,6 +36,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', Membre::class);
         yield MenuItem::linkToCrud('Carte B-mobile', 'fas fa-credit-card', Carte::class);
+        yield MenuItem::linkToCrud('Frequentation', 'fa fa-money', Frequentation::class);
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Categories::class);
         yield MenuItem::linkToCrud('Enseignes', 'fas fa-tag', Enseigne::class);
         yield MenuItem::linkToCrud('Détails sur Enseignes', 'fas fa-info-circle', EnseigneDetails::class);
