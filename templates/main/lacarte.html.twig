@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}B-mobile || La-carte{% endblock %}
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/carte_styles.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+<!-- Slider -->
+
+<div class="main_slider" style="background-image:url( {{ asset('assets/img/Banniére_Bmobile_1.png') }} )">
+    <div class="container fill_height">
+        <div class="row align-items-center fill_height">
+            <div class="col">
+                <div class="main_slider_content">
+                    <h6>B-mobile || Plus qu'une appli - Un style vie intélligent</h6>
+                    <h2>Ta carte B-mobile, ton ami pour la vie</h2>
+                    <div class="red_button shop_now_button"><a href="{{ path('app_enseignes') }}">Découvrir</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- A propos de B-Mobile card -->
+
+            
+<div class="tabs_section_container mt-5">
+
+    <div class="container">
+    
+        <div class="row">
+            <div class="col">
+
+                <!-- Tab Description -->
+
+                <div id="tab_1" class="tab_container active">
+                    <div class="row">
+                        <div class="col-lg-5 desc_col">
+                            <div class="tab_title">
+                                <h4>Être B-mobile☺</h4>
+                            </div>
+                            <div class="tab_text_block">
+                                <h2>Ta carte B-mobile la clé à tout</h2>
+                                <p>Avoir un style de vie diffèrent, c'est être dans la communauté Bantoo_Mobile.<br>T'offrir
+                                    toute la semaine ton plat préféré, porter tout le temps des habits de luxe et à ton goût, faire du shopping, aller
+                                au supermarché en famille et le tout a un prix réduit!! super cela existe et c'est sur Bantoo_Mobile<br>Tu n'a pas
+                            de carte, fait ta commande ici <a href="{{ path('app_register') }}" class="btn btn-danger">Chope le</a></p>
+                                </div>
+                            <div class="tab_image">
+                                <img src="{{ asset('assets/img/carte_img2.jpg') }}" alt="">
+                            </div>
+                            <div class="tab_text_block">
+                                <h2>Ma carte</h2>
+                                <p>C'est ton principale élément de reconnaissance, ta carte t'ouvre les portes d'un monde
+                                    plus fun, plus simple avec tous ce que tu peux désirez.<br>
+                                   Le Kit B-Mobile est disponible dans toutes les agences B-mobile. Ce kit est composé d'une carte et d'une puce
+                                avec plusieurs offres téléphoniques et internet inclus 
+                                <a href="{{ path('app_register') }}" class="btn btn-danger mt-2">Loy xar!!</a></p></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 offset-lg-2 desc_col">
+                            <div class="tab_image">
+                                <img src="{{ asset('assets/img/carte_img1.jpg') }}" alt="">
+                            </div>
+                            <div class="tab_text_block">
+                                <h2>Une carte new génération</h2>
+                                <p>La carte new génération, fiable et confidentielle. Avec un système de QR code intégré avec un identifiant unique et sécurisé.
+                                    <br>Soit en sure ton univers t'appartient <br>
+                                    <a href="{{ path('app_enseignes') }}" class="btn btn-danger mt-2">Découvre tes avantages</a></p>
+                            </div>
+                            <sdiv class="tab_image desc_last">
+                                <img src="{{ asset('assets/img/blog_4.jpg') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

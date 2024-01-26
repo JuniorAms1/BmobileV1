@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <title>Scan Qr Code</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="{{ asset('instascan-master/docs/style.css') }}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="B-Mobile App">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script src="{{ asset('instascan-master/docs/app.js') }}"></script>
+    <script src="{{ asset('instascan-master/docs/1.js') }}"></script>
+    <script src="{{ asset('instascan-master/docs/2.js') }}"></script>
+</head>
+  <body>
+    {% if notification %}
+   <script>
+    alert(' {{ notification }} ')
+   </script> 
+ {% endif %}
+    <div id="app">
+      <div class="sidebar">
+        <section class="cameras">
+          <h2>Cameras</h2>
+          <ul>
+            <li v-if="cameras.length === 0" class="empty">No cameras found</li>
+            <li v-for="camera in cameras">
+              <span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active"></span>
+              <span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
+                <a @click.stop="selectCamera(camera)"></a>
+              </span>
+            </li>
+          </ul>
+        </section>
+        <section class="scans">
+          <h2>Scans</h2>
+          <ul v-if="scans.length === 0">
+            <li class="empty">No scans yet</li>
+          </ul>
+           <transition-group name="scans" tag="ul">
+            <li v-for="scan in scans" :key="scan.date" :title="scan.content">
+
+
+                  {{ form_start(form) }}
+                  
+                  {{ form_row(form.montant) }}
+               
+                  {{ form_end(form) }}
+            </li>
+
+          </transition-group>
+        </section>
+            <br>  
+        <center>
+            <button type="button" name="button"><a href="{{ path('app_account_partner') }}">Retour</a></button>
+        </center>
+  
+
+
+
+      </div>
+      <div class="preview-container">
+        <video id="preview"></video>
+      </div>
+    </div>
+    </body>
+
+
+
+
+<script type="text/javascript">
+    var app = new Vue({
+el: '#app',
+data: {
+  scanner: null,
+  activeCameraId: null,
+  cameras: [],
+  scans: []
+},
+
+mounted: function () {
+  var self = this;
+
+  self.scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5 });
+  self.scanner.addListener('scan', function (content) {
+    self.scans.unshift({ date: +(Date.now()), content: content });
+   
+    var audio =new Audio("Prize.wav");
+    audio.play();
+
+  });
+  Instascan.Camera.getCameras().then(function (cameras) {
+    self.cameras = cameras;
+    if (cameras.length > 0) {
+      self.activeCameraId = cameras[0].id;
+      self.scanner.start(cameras[0]);
+    } else {
+      console.error('No cameras found.');
+    }
+  }).catch(function (e) {
+    console.error(e);
+  });
+},
+methods: {
+  formatName: function (name) {
+    return name || '(unknown)';
+  },
+  selectCamera: function (camera) {
+    this.activeCameraId = camera.id;
+    this.scanner.start(camera);
+  }
+}
+});
+  </script>
+  </html>

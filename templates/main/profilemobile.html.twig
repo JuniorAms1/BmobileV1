@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}B-mobile || Profil-Mobile{% endblock %}
+
+{% block body %}
+
+	
+    
+    <!-- Slider -->
+
+	<div class="main_slider" style="background-image:url( {{ asset('assets/img/Banniére_Bmobile_1.png') }} )">
+		<div class="container fill_height">
+			<div class="row align-items-center fill_height">
+				<div class="col">
+					<div class="main_slider_content">
+						<h6>B-mobile || Plus qu'une appli - Un style vie intélligent</h6>
+						<h2>La carte B-mobile, ton ami pour la vie</h2>
+						<div class="red_button shop_now_button"><a href="{{ path('app_enseignes') }}">Découvrir</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- A propos de B-Mobile card -->
+
+	<div class="container mt-5">
+
+		<div class="row">
+			<div class="col-12">
+				<div class="card text-center">
+					<div class="card-header">
+						Juste ce qu'il te faut
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Special treatment</h5>
+						<p class="card-text">Pour profiter de l'offre télécom mobile, achète ton  kit
+							Samaadouna disponible dans tous les agences Tigo ou migre gratuitement en composant
+						  le #258*8#. <br>Consomme au moins 5000F/mois et bénéficie de
+						nombreux avantages.</p>
+						
+						<a href="{{ path('app_register') }}" class="btn btn-danger">Go pécho le Kit</a>
+					</div>
+					<div class="card-footer text-muted">
+						Loy xar? B-mobile moy deal bi
+					</div>
+				</div>
+			</div>
+		  </div>
+		<div class="row mt-5 mb-5">
+	
+			<div class="col-6">
+				<img src="{{ asset('assets/img/carte_img2.jpg') }}" alt="">
+			</div>
+			<div class="col-6">
+				<div class="tab_text_block text-center">
+					<h2>APPELS</h2>
+					<ul>
+						<li>Appels illimités de 21h à 7h </li>
+						  <li>50% de réduction le reste du temps(dans le profil Samaadouna)</li>
+							<li>250F offert vers les autres numéro</li>
+					  </ul>
+						<hr>
+
+		
+				
+					<h2>SMS</h2>
+					<ul style="text-align: center;">
+						<li>A partir de 5000F - 1000 sms</li>
+						<li>A partir de 10000F - 2500 sms</li>
+						<li>A partir de 15000F - 4000 sms</li>
+						<li>A partir de 25000F - 5000 sms</li>
+						<li>125F offert vers les autres réseau</li>
+		 			</ul>
+						<hr>
+				
+				
+					<h2>INTERNET</h2>
+					<ul>
+						<li>Désormais 500 Mo offerts sur 15 jours pour 5000F de consommation</li>
+						<li>500 Mo offerts sur 30 jours pour 10000F et plus</li>
+						<li>750 Mo offerts sur 30 jours pour 15000F et plus</li>
+						<li>1 Go offerts sur 30 jours pour 25000F et plus</li>
+					</ul>
+						<hr>
+						
+				</div>
+		  	</div>
+		 
+		 
+		</div>
+		
+	  </div>
+
+	</div>
+
+    {% endblock %}
