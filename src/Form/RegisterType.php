@@ -76,7 +76,7 @@ class RegisterType extends AbstractType
                 'label' => false,
                 'choices' => [
                         'A la livraison' => 'At delivery',
-                        'B-mobile Money' => 'B-mobile Transfer', 
+                        'Baba Cash' => 'B-mobile Transfer', 
                         
                 ]
             ])

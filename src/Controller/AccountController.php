@@ -27,7 +27,7 @@ class AccountController extends AbstractController
         
         ): Response
     {
-        # On instancie nos variable de qr
+        # On instancie la variable de qr
         $qrCode = null;
       
         $user = $this->getUser();
