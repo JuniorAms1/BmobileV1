@@ -20,6 +20,13 @@ class AccountController extends AbstractController
         return $this->render('account/index.html.twig');
     }
 
+    #[Route('/compte/community', name: 'app_community')]
+    public function community(): Response
+    {
+        
+        return $this->render('account/community.html.twig');
+    }
+
     #[Route('/compte/mon-qr-codes', name: 'app_qr_codes')]
     public function monQr(
         ManagerRegistry $doctrine,

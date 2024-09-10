@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}B-mobile || Mon-compte || Communauté{% endblock %}
+
+{% block body %}
+
+<div class="main_slider_ext">
+
+
+	<div class="newsletter">
+		<div class="container">
+            <h1>Communauté</h1>
+			<div class="row">
+				<div class="col-lg-9">
+					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+						
+						<h3>Rencontrez de nouvelles personnes. <br>
+                          Découvrez de nouvelles opportunités.</h3>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<form action="post">
+						<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
+							
+							<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">
+                                <i class="fa fa-group"></i> Publier mon groupe
+                            </button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <br>
+
+    <!-- community groups -->
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- community groups 1 -->
+         <div class="col-sm-6">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{ asset('assets/img/2762.jpg') }}" class="card-img-top" alt="Social icon">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">We meet and we talk <span class="badge bg-danger">Payant</span></h5>
+                        <p class="card-text">Nos principales activités sont les webinaires et les onlines challenges
+                          nommés Monday Show où les gens sont soumis à des tests de leadership et de développement personnels
+                        </p>
+                        <a href="#" class="btn btn-success">REJOINDRE</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- community groups 2 -->
+
+            <div class="col-sm-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="{{ asset('assets/img/2762.jpg') }}" class="card-img-top" alt="Social icon">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Social Media Room</h5>
+                            <p class="card-text">Programme en ligne de renforcement de capacité en Community Management,
+                             Social media, Marketing et com.
+                            </p>
+                            <a href="#" class="btn btn-success">REJOINDRE</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- community groups 3 -->
+
+                <div class="col-sm-6">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="{{ asset('assets/img/2762.jpg') }}" class="card-img-top" alt="Social icon">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Cinéphile 221</h5>
+                                <p class="card-text">Groupe exlusivement destiné à recevoir le programme de la semaine de Canal Olympia,
+                                    Cinéma Pathé... Bon plan à partager.
+                                </p>
+                                <a href="#" class="btn btn-success">REJOINDRE</a>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- community groups 4 -->
+
+                    <div class="col-sm-6">
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="{{ asset('assets/img/2762.jpg') }}" class="card-img-top" alt="Social icon">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Afri'Carriére | Opportunités de carriére</h5>
+                                    <p class="card-text">C'est une plateforme d'emplois etb opportunités pour africains.
+                                      Retrouvez chaque semaine de nouvelles opportunités d'emplois, stages, bourses, concours, conférences, appel
+                                    </p>
+                                    <a href="#" class="btn btn-success">REJOINDRE</a>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+          
+
+        </div>
+    </div>
+
+    
+
+      <br>
+
+</div>
+
+
+{% endblock %}
